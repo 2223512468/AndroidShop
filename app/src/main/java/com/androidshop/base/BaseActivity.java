@@ -273,7 +273,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
-                loginOut();
+                //loginOut();
             }
         });
         dialog.show();
@@ -301,19 +301,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
-                loginOut();
+                // loginOut();
             }
         });
         dialog.show();
     }
 
-    /**
-     * 退出登录
-     */
-    protected void loginOut() {
-     /*   SPUtils.clear(mContext);
-        LoginUtil.clearInfo(mContext);
-        SPUtils.put(getApplication(), "isLogin", false);
-        EventBus.getDefault().post(new EventMessage(LOGIN_OUT_ACTION, "退出"));*/
-    }
 }

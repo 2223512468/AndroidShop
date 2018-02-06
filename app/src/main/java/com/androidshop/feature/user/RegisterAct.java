@@ -5,10 +5,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.alibaba.fastjson.JSONArray;
 import com.androidshop.R;
 import com.androidshop.base.BaseActivity;
 import com.androidshop.model.RegisterModel;
 import com.androidshop.network.ApiImp;
+import com.androidshop.network.req.UserReq;
 import com.androidshop.utils.StringUtil;
 import com.androidshop.utils.T;
 
@@ -16,6 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.BindView;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -46,6 +50,7 @@ public class RegisterAct extends BaseActivity implements View.OnClickListener {
     @BindView(R.id.tv_register)
     Button tv_register;
     private Map<String, String> paramValue = new HashMap<>();
+    private UserReq req = new UserReq();
 
     @Override
     protected int getViewId() {
@@ -152,13 +157,22 @@ public class RegisterAct extends BaseActivity implements View.OnClickListener {
         paramValue.put("phone", phone);
         paramValue.put("question", question);
         paramValue.put("answer", answer);
+
+        req.setUsername(username);
+        req.setPassword(password);
+        req.setEmail(email);
+        req.setPhone(phone);
+        req.setQuestion(question);
+        req.setAnswer(answer);
+
         register();
 
     }
 
     private void register() {
         showProgressDialog("正在注册...请稍候");
-        ApiImp.get().register(paramValue)
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), JSONArray.toJSONString(req));
+        ApiImp.get().register(requestBody)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<RegisterModel>() {

@@ -11,6 +11,7 @@
     <color name="text_black">#323232</color>
     <color name="grag_by">#F7F7F7</color>
     <color name="by_gray">#DADADA</color>
-
+    <color name="text_black_light">#9c9c9c</color>
+    <color name="bg_dark_gray">#4c4c4c</color>
 
 </resources>

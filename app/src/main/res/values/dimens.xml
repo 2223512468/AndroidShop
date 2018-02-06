@@ -13,8 +13,12 @@
     <dimen name="dp_5">5dp</dimen>
     <dimen name="dp_10">10dp</dimen>
     <dimen name="dp_15">15dp</dimen>
-
+    <dimen name="div_height">0.8dp</dimen>
     <dimen name="preview_view_height">62dp</dimen>
+    <dimen name="main_bottom_icon_height">44dp</dimen>
+    <dimen name="main_bottom_icon_weight">38dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
+
 
 
 </resources>

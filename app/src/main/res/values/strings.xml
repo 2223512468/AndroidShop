@@ -22,6 +22,25 @@
     <string name="login">登录</string>
     <string name="find_pwd">找回密码</string>
     <string name="update_pwd">修改密码</string>
+    <string name="my_value">优惠券</string>
+    <string name="buy_shop">优惠券领取</string>
+    <string name="my_user_log">我的足迹</string>
+    <string name="about_user_log">浏览过的历史</string>
+    <string name="shareApp">分享APP</string>
+    <string name="share_jajahome">分享JAJAHOME</string>
+    <string name="setting">设置</string>
+    <string name="account_address">个人设置</string>
+    <string name="my_jajahome">jajahome</string>
+    <string name="ziliao">个人资料</string>
+    <string name="safe_user">账户与安全</string>
+    <string name="change_pwd">修改密码</string>
+    <string name="inform">接收通知</string>
+    <string name="news">要开启或关闭消息的推送消息，请在手机的\"设置\"-\"通知\"中找到\"消息\"进行设置</string>
+    <string name="cache">清除缓存</string>
+    <string name="serve">服务与反馈</string>
+    <string name="aboutUs">关于我们</string>
+    <string name="exit">退出当前帐号</string>
+    <string name="send">提交</string>
 
 
 </resources>

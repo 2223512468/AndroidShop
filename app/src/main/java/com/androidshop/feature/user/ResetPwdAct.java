@@ -108,10 +108,10 @@ public class ResetPwdAct extends BaseActivity implements View.OnClickListener {
                     public void onNext(UpdateModel model) {
                         if (model.getStatus() == 0) {
                             T.showShort(ResetPwdAct.this, model.getMsg());
+                            finish();
                         } else {
                             T.showShort(ResetPwdAct.this, model.getMsg());
                         }
-                        finish();
                     }
                 });
     }

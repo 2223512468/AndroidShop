@@ -12,17 +12,22 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".feature.user.LoginAct">
+        <activity android:name=".feature.user.LoginAct" />
+        <activity android:name=".feature.user.RegisterAct" />
+        <activity android:name=".feature.user.FindPwdAct" />
+        <activity android:name=".feature.user.ResetPwdAct" />
+        <activity android:name=".feature.user.UserAct" />
+        <activity android:name=".feature.user.SettingAct" />
+        <activity android:name=".feature.user.DataAct" />
+        <activity android:name=".feature.user.AccountAct" />
+        <activity android:name=".feature.user.ChangePwdAct"/>
+        <activity android:name=".MainAty">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".feature.user.RegisterAct" />
-        <activity android:name=".feature.user.FindPwdAct" />
-        <activity android:name=".feature.user.ResetPwdAct" />
 
     </application>
 

@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.BindView;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -95,10 +97,10 @@ public class LoginAct extends BaseActivity implements View.OnClickListener {
         req.setUsername(username);
         req.setPassword(password);
 
-        // RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), JSONArray.toJSONString(req));
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), JSONArray.toJSONString(req));
 
         showProgressDialog("正在登录...");
-        ApiImp.get().login(param)
+        ApiImp.get().login(requestBody)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<LoginModel>() {
@@ -115,8 +117,11 @@ public class LoginAct extends BaseActivity implements View.OnClickListener {
                     @Override
                     public void onNext(LoginModel model) {
                         T.showShort(LoginAct.this, model.getMsg());
-                        LoginUtil.saveInfo(LoginAct.this, model);
-                        Log.i("print", JSONArray.toJSONString(model));
+                        if (model.getStatus() == 0) {
+                            LoginUtil.saveInfo(LoginAct.this, model);
+                            Log.i("print", JSONArray.toJSONString(model));
+                            finish();
+                        }
                     }
                 });
 
