@@ -1,6 +1,8 @@
 package com.androidshop.network;
 
 import com.androidshop.model.AnswerModel;
+import com.androidshop.model.FilterModel;
+import com.androidshop.model.ItemModel;
 import com.androidshop.model.LoginModel;
 import com.androidshop.model.LoginOutModel;
 import com.androidshop.model.QuestionModel;
@@ -74,5 +76,13 @@ public class ApiImp implements Api {
         return genApi().getUserInfo(map);
     }
 
+    @Override
+    public Observable<ItemModel> config(@Body RequestBody requestBody) {
+        return genApi().config(requestBody);
+    }
 
+    @Override
+    public Observable<FilterModel> filter() {
+        return genApi().filter();
+    }
 }

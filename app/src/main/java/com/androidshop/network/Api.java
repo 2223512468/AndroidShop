@@ -1,6 +1,8 @@
 package com.androidshop.network;
 
 import com.androidshop.model.AnswerModel;
+import com.androidshop.model.FilterModel;
+import com.androidshop.model.ItemModel;
 import com.androidshop.model.LoginModel;
 import com.androidshop.model.LoginOutModel;
 import com.androidshop.model.QuestionModel;
@@ -22,29 +24,35 @@ import rx.Observable;
  */
 public interface Api {
 
-    @POST("register")
+    @POST("user/register")
     Observable<RegisterModel> register(@Body RequestBody requestBody);
 
-    @POST("login")
+    @POST("user/login")
     Observable<LoginModel> login(@Body RequestBody requestBody);
 
-    @POST("forgetPassword")
+    @POST("user/forgetPassword")
     Observable<QuestionModel> findPwd(@QueryMap Map<String, String> map);
 
-    @POST("checkAnswer")
+    @POST("user/checkAnswer")
     Observable<AnswerModel> checkAnswer(@QueryMap Map<String, String> map);
 
-    @POST("forgotResetPassword")
+    @POST("user/forgotResetPassword")
     Observable<UpdateModel> resetPwd(@QueryMap Map<String, String> map);
 
-    @POST("logout")
+    @POST("user/logout")
     Observable<LoginOutModel> logout(@QueryMap Map<String, String> map);
 
     @Multipart
-    @POST("updateInformation")
+    @POST("user/updateInformation")
     Observable<LoginModel> updateInformation(@Part("json") RequestBody requestBody, @Part("session") RequestBody requestBody1);
 
-    @POST("getUserInfo")
+    @POST("user/getUserInfo")
     Observable<LoginOutModel> getUserInfo(@QueryMap Map<String, String> map);
+
+    @POST("item/item")
+    Observable<ItemModel> config(@Body RequestBody requestBody);
+
+    @POST("item/filter")
+    Observable<FilterModel> filter();
 
 }
